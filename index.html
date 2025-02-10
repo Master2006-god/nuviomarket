@@ -1,93 +1,321 @@
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda en línea de productos variados. Encuentra todo lo que necesitas en un solo lugar.">
+  <meta name="keywords" content="tienda, productos, compras, envíos, ofertas">
+  <meta name="author" content="Tu Nombre">
+  <link rel="canonical" href="https://nuviomarket.com" />
+  <title>Nuviomarket - Tu tienda en línea</title>
+  <style>
+    /* Estilos mejorados */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
 
-  header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-  .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
 
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-  .product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+    .product-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-  .product-card h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: #4CAF50;
-  }
+    .product-card h3 {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #4CAF50;
+    }
 
-  .product-card p {
-    font-size: 0.9em;
-    color: #777;
-  }
+    .product-card p {
+      font-size: 0.9em;
+      color: #777;
+    }
 
-  .product-card .price {
-    font-size: 1.5em;
-    color: #333;
-    margin: 10px 0;
-    font-weight: bold;
-  }
+    .product-card .price {
+      font-size: 1.5em;
+      color: #333;
+      margin: 10px 0;
+      font-weight: bold;
+    }
 
-  .product-card button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-  }
+    .product-card button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
 
-  .product-card button:hover {
-    background-color: #45a049;
-  }
+    .product-card button:hover {
+      background-color: #45a049;
+    }
 
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-  }
-</style>
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-icon img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .cart-count {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+    }
+
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cart-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .cart-item button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart-total {
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .cart-actions {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .cart-actions button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nuviomarket</h1>
+    <p>Tu tienda en línea</p>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="filterProducts()" />
+  </div>
+
+  <div class="container">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="Producto 1" />
+        <h3>Producto 1</h3>
+        <p>Descripción del producto 1.</p>
+        <p class="price">$50.00</p>
+        <button onclick="addToCart('Producto 1', 50)">Añadir al carrito</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="Producto 2" />
+        <h3>Producto 2</h3>
+        <p>Descripción del producto 2.</p>
+        <p class="price">$30.00</p>
+        <button onclick="addToCart('Producto 2', 30)">Añadir al carrito</button>
+      </div>
+      <!-- Añade más productos aquí -->
+    </div>
+  </div>
+
+  <div class="cart-icon" onclick="openCart()">
+    <img src="https://cdn-icons-png.flaticon.com/512/2838/2838895.png" alt="Carrito" />
+    <span class="cart-count" id="cartCount">0</span>
+  </div>
+
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <h2>Carrito de Compras</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button onclick="sendWhatsApp()">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2023 Nuviomarket. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName, price) {
+      cart.push({ name: productName, price: price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartCount = document.getElementById("cartCount");
+      const cartItems = document.getElementById("cartItems");
+      const cartTotal = document.getElementById("cartTotal");
+
+      cartCount.innerText = cart.length;
+      cartItems.innerHTML = "";
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+        cartItem.innerHTML = `
+          <span>${item.name} - $${item.price.toFixed(2)}</span>
+          <button onclick="removeFromCart(${index})">Eliminar</button>
+        `;
+        cartItems.appendChild(cartItem);
+      });
+
+      cartTotal.innerText = `$${total.toFixed(2)}`;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function openCart() {
+      const cartModal = document.getElementById("cartModal");
+      cartModal.style.display = "flex";
+    }
+
+    function sendWhatsApp() {
+      let message = "¡Hola! Quiero comprar los siguientes productos:\n";
+      cart.forEach(item => {
+        message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
+      });
+      message += `Total: $${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`;
+      const url = `https://wa.me/5804123871378?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    function filterProducts() {
+      const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.querySelectorAll(".product-card");
+
+      products.forEach(product => {
+        const name = product.querySelector("h3").innerText.toLowerCase();
+        if (name.includes(searchTerm)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
