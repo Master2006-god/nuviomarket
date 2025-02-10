@@ -1,66 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Tienda de Todo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 20px;
-    }
-    .product-card {
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 300px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .product-card h3 {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
-    .product-card p {
-      font-size: 0.9em;
-      color: #777;
-    }
-    .product-card .price {
-      font-size: 1.2em;
-      color: #4CAF50;
-      margin: 10px 0;
-    }
-  </style>
-</head>
-<body>
-  <h1>Mi Tienda de Todo</h1>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/200" alt="Producto de ejemplo" />
-    <h3>Producto de ejemplo</h3>
-    <p>Descripción del producto.</p>
-    <p class="price">$50.00</p>
-    <button onclick="comprar('Producto de ejemplo')">Comprar</button>
-  </div>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+  }
 
-  <script>
-    function comprar(producto) {
-      const mensaje = `¡Hola! Estoy interesado en comprar: ${producto}`;
-      const url = `https://wa.me/5804123871378?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, "_blank");
-    }
-  </script>
-</body>
-</html>
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .product-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #4CAF50;
+  }
+
+  .product-card p {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+  .product-card .price {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+
+  .product-card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+
+  .product-card button:hover {
+    background-color: #45a049;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+</style>
